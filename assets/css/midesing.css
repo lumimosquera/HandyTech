@@ -86,14 +86,14 @@ body, ul, li, p, a, label, input, div {
 .templatemo-accordion a { color: #000;}
 .templatemo-accordion a:hover { color: #333d4a;}
 /* Shop */
-.shop-top-menu a:hover { color: #69bb7e !important;}
+.shop-top-menu a:hover { color: #970C10 !important;}
 /* Product */
 .product-wap { box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.10);}
 .product-wap .product-color-dot.color-dot-red { background:#f71515;}
 .product-wap .product-color-dot.color-dot-blue { background:#6db4fe;}
 .product-wap .product-color-dot.color-dot-black { background:#000000;}
 .product-wap .product-color-dot.color-dot-light { background:#e0e0e0;}
-.product-wap .product-color-dot.color-dot-green { background:#0bff7e;}
+.product-wap .product-color-dot.color-dot-green { background:#970C10;}
 .card.product-wap .card .product-overlay {
   background: rgba(0,0,0,.2);
   visibility: hidden;
@@ -123,11 +123,11 @@ body, ul, li, p, a, label, input, div {
 /* Carousel Hero */
 #template-mo-zay-hero-carousel .carousel-indicators li {
   margin-top: -50px;
-  background-color: #59ab6e;
+  background-color: #970C10;
 }
 #template-mo-zay-hero-carousel .carousel-control-next i,
 #template-mo-zay-hero-carousel .carousel-control-prev i {
-  color: #59ab6e !important;
+  color: #970C10 !important;
   font-size: 2.8em !important;
 }
 /* Carousel Brand */
@@ -138,28 +138,119 @@ body, ul, li, p, a, label, input, div {
 /* Services */
 .services-icon-wap {transition: .3s;}
 .services-icon-wap:hover, .services-icon-wap:hover i {color: #fff;}
-.services-icon-wap:hover {background: #69bb7e;}
+.services-icon-wap:hover {background: #970C10;}
 /* Contact map */
 .leaflet-control a, .leaflet-control { font-size: 10px !important;}
 .form-control { border: 1px solid #e8e8e8;}
 /* Footer */
-#tempaltemo_footer a { color: #dcdde1;}
-#tempaltemo_footer a:hover { color: #68bb7d;}
-#tempaltemo_footer ul.footer-link-list li { padding-top: 10px;}
-#tempaltemo_footer ul.footer-icons li {
-  width: 2.6em;
-  height: 2.6em;
-  line-height: 2.6em;
+/* Footer */
+.pie-pagina {
+  width: 100%;
+  background-color: #F2F2F2;
 }
-#tempaltemo_footer ul.footer-icons li:hover {
-  background-color: #cfd6e1;
-  transition: .5s;
+
+.pie-pagina .grupo-1 {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  padding: 45px 0px;
 }
-#tempaltemo_footer ul.footer-icons li:hover i {
-  color: #212934;
-  transition: .5s;
+
+.pie-pagina .grupo-1 .box figure {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#tempaltemo_footer .border-light { border-color: #2d343f !important;}
+
+.pie-pagina .grupo-1 .box figure img {
+  width: 300px;
+}
+
+.pie-pagina .grupo-1 .box h2 {
+  color: #0D0D0D;
+  margin-bottom: 25;
+  font-size: 20px;
+}
+
+.pie-pagina .grupo-1 .box p {
+  color: #222222;
+  margin-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .box ul{
+  list-style-type: none;
+  padding: 0;
+}
+.pie-pagina .grupo-1 .box ul li{
+  margin-bottom: 10px;
+}
+.pie-pagina .grupo-1 .box ul li a{
+  color: #012030;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.pie-pagina .grupo-1 .box ul li a:hover{
+  color: #73141B;
+
+}
+
+.pie-pagina .grupo-1 .contacto a {
+  display: inline-block;
+  text-decoration: none;
+  color: #012030;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .red-social a {
+  display: inline-block;
+  text-decoration: none;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  color: #ffff;
+  margin-right: 10px;
+  background-color:#73141B;
+  text-align: center;
+  transition: all 300ms ease;
+}
+
+.pie-pagina .grupo-1 .red-social a:hover {
+  color: #012030;
+}
+
+.pie-pagina .grupo-2 {
+  background-color: #73141B;
+  padding: 15px 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.pie-pagina .grupo-2 small {
+  font-size: 15px;
+}
+
+@media screen and (max-width:800px) {
+  .pie-pagina .grupo-1 {
+    width: 90%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+    padding: 35px 0px;
+    margin: auto;
+  }
+}
+
+
+
+/* fin Footer */
+
+
 /*
 // Extra small devices (portrait phones, less than 576px)
 // No media query since this is the default in Bootstrap
