@@ -121,6 +121,21 @@ body, ul, li, p, a, label, input, div {
   opacity: 1;
 }
 /* Carousel Hero */
+
+
+.carousel-inner {
+  background-color: #f8f9fa;
+}
+
+.carousel-item {
+  transition: transform 0.5s ease-in-out;
+}
+
+.h1, .h2, .p {
+  margin: 0 0 1rem 0;
+}
+
+
 #template-mo-zay-hero-carousel .carousel-indicators li {
   margin-top: -50px;
   background-color: #970C10;

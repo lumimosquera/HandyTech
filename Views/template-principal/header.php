@@ -11,7 +11,7 @@
 
 
     <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/bootstrap.min.css'; ?>">
-    <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/midesing.css'; ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/midesingl.css'; ?>">
     <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/custom.css'; ?>">
 
     <!-- Load fonts style after rendering the layout styles -->
