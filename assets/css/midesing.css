@@ -135,6 +135,13 @@ body, ul, li, p, a, label, input, div {
   margin: 0 0 1rem 0;
 }
 
+    .custom-carousel-btn {
+        background-color: #970C10 !important;
+        color: white !important;
+    }
+
+
+
 
 #template-mo-zay-hero-carousel .carousel-indicators li {
   margin-top: -50px;

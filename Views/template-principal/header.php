@@ -5,17 +5,22 @@
     <title><?php echo TITLE . ' - ' .  $data['title'] ;?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" href="<?php echo BASE_URL . 'assets/img/apple-icon.png'; ?>">
+    <link rel="apple-touch-icon" href=".../assets/img/Handy.png">
+    <link rel="apple-touch-icon" href="<?php echo BASE_URL . 'assets/img/Handy.png'; ?>">
     <script src="https://kit.fontawesome.com/b02da9335c.js" crossorigin="anonymous"></script>
 
 
     <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/bootstrap.min.css'; ?>">
-    <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/midesingl.css'; ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/midesing.css'; ?>">
     <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/custom.css'; ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/estilo.css'; ?>">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+
+      <!-- Slick -->
+      <link rel="stylesheet" type="text/css" href="assets/css/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
 
 
 </head>
@@ -27,7 +32,7 @@
             <div class="w-100 d-flex justify-content-between">
                 <div>
                     <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@handytech.com</a>
                     <i class="fa fa-phone mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
                 </div>
@@ -50,12 +55,11 @@
     <!-- Close Top Nav -->
 
 
-
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-black logo h2 align-self-center" href="index.html"><span class=" text-danger logo h2| align-self-center" href="index.html">Handy</span>Tech</a>
+            <a class="navbar-brand text-black logo h2 align-self-center" href="index.html"><span class=" text-danger logo h2| align-self-center" href=" <?php echo BASE_URL?>" <?php echo TITLE_DOS; ?> > <?php echo TITLE; ?></a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -64,17 +68,15 @@
             <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                       
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link" href=" <?php echo BASE_URL . 'principal/about' ?>">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="<?php echo BASE_URL . 'principal/shop' ?>">Tienda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="<?php echo BASE_URL . 'principal/contactos' ?>">Contactos</a>
                         </li>
                     </ul>
                 </div>

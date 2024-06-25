@@ -6,6 +6,7 @@ const PASS = "";
 const DB = "Handy-Tech";
 const CHARSET = "charset=utf8";
 const TITLE = "HandyTech";
+const TITLE_DOS = "Tech";
 const MONEDA = "COP";
 const CLIENT_ID = "";
 ?>
