@@ -8,6 +8,7 @@ class Home extends Controller
     public function index()
     {
         $data['title'] = 'Inicio';
+        $data['categorias'] = $this->model->getCategorias();
         $this->views->getView('home', "index", $data);
     }
    

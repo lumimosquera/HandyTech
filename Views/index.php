@@ -1,7 +1,6 @@
 <?php include_once 'Views/template-principal/header.php'; ?>
 
 
-
 <!-- Start Banner Hero -->
 <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
     <ol class="carousel-indicators">
@@ -111,21 +110,13 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-4 p-5 mt-3">
-            <a href="#"><img src="<?php echo BASE_URL; ?>assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
-            <h5 class="text-center mt-3 mb-3">Tecnología Portátil</h5>
+<?php foreach ($data['categorias'] as $categoria) { ?>
+        <div class="col-12 col-md-2 p-5 mt-3">
+            <a href="#"><img src="<?php echo $categoria['imagen']; ?>" class="rounded-circle img-fluid border"></a>
+            <h5 class="text-center mt-3 mb-3"><?php echo $categoria['categoria']; ?></h5>
             <p class="text-center"><a class="btn btn-danger">Ver Más</a></p>
         </div>
-        <div class="col-12 col-md-4 p-5 mt-3">
-            <a href="#"><img src="<?php echo BASE_URL; ?>assets/img/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
-            <h5 class="text-center mt-3 mb-3">Calzado Inteligente</h5>
-            <p class="text-center"><a class="btn btn-danger">Ver Más</a></p>
-        </div>
-        <div class="col-12 col-md-4 p-5 mt-3">
-            <a href="#"><img src="<?php echo BASE_URL; ?>assets/img/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
-            <h5 class="text-center mt-3 mb-3">Accesorios Útiles</h5>
-            <p class="text-center"><a class="btn btn-danger">Ver Más</a></p>
-        </div>
+        <?php }?>
     </div>
 </section>
 <!-- Categorías finales del mes -->

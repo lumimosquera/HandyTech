@@ -1,11 +1,10 @@
 <?php
-class HomeModel extends Query{
+class PrincipalModel extends Query{
  
     public function __construct()
     {
         parent::__construct();
     }
-    
     public function getCategorias()
     { 
        $sql =" SELECT * FROM categorias ";

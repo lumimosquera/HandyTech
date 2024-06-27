@@ -12,7 +12,7 @@
 
                 </div>
                 <div class="col-md-4">
-                    <img src="<?php echo BASE_URL;?>assets/img/about-shop.svg" alt="About Hero">
+                    <img src="<?php echo BASE_URL;?>assets/img/about-shop.svg" alt="About Hero" class="">
                 </div>
             </div>
         </div>
