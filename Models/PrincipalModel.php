@@ -5,10 +5,10 @@ class PrincipalModel extends Query{
     {
         parent::__construct();
     }
-    public function getCategorias()
+    public function getProducto($id_producto)
     { 
-       $sql =" SELECT * FROM categorias ";
-       return $this->selectAll($sql);
+       $sql =" SELECT p. *, c.categoria FROM productos  p INNER JOIN categorias c ON p.id_categoria = c.id WHERE p.id = $id_producto";
+       return $this->select($sql);
     }
 
 }

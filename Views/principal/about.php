@@ -1,22 +1,22 @@
 
 <?php include_once 'Views/template-principal/header.php';?>
 
-    <section class="bg-danger py-5">
-        <div class="container">
-            <div class="row align-items-center py-5">
-                <div class="col-md-8 text-white">
+<section class="bg-danger py-5">
+    <div class="container">
+        <div class="row align-items-center py-5">
+            <div class="col-md-8 text-white">
                 <h1>Sobre Nosotros</h1>
-<p>
-    En HandyTech, nuestra misión es acercar la tecnología de vanguardia a todas las personas. Nos especializamos en ofrecer productos innovadores y soluciones tecnológicas que facilitan y mejoran la vida cotidiana. Con un equipo de expertos apasionados por la tecnología, estamos dedicados a proporcionar la mejor experiencia al cliente, desde la compra hasta el soporte postventa.
-</p>
-
-                </div>
-                <div class="col-md-4">
-                    <img src="<?php echo BASE_URL;?>assets/img/about-shop.svg" alt="About Hero" class="">
-                </div>
+                <p>
+                    En HandyTech, nuestra misión es acercar la tecnología de vanguardia a todas las personas. Nos especializamos en ofrecer productos innovadores y soluciones tecnológicas que facilitan y mejoran la vida cotidiana. Con un equipo de expertos apasionados por la tecnología, estamos dedicados a proporcionar la mejor experiencia al cliente, desde la compra hasta el soporte postventa.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <img src="<?php echo BASE_URL;?>assets/img/about-shop.svg" alt="About Hero" class="img-fluid">
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
     <!-- Close Banner -->
 
     <!-- Start Section -->

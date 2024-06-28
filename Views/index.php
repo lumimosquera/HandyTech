@@ -135,10 +135,11 @@
             </div>
         </div>
         <div class="row">
+            <?php foreach ($data['nuevoProductos'] as $producto){?>
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100 shadow-sm">
-                    <a href="shop-single.html">
-                        <img src="<?php echo BASE_URL; ?>assets/img/feature_prod_01.jpg" class="card-img-top" alt="Gym Weight">
+                    <a href="<?php echo BASE_URL . 'principal/detail/' . $producto['id'];?>">
+                        <img src="<?php echo $producto['imagen']; ?>" class="card-img-top" alt="<?php echo $producto['nombre']; ?>">
                     </a>
                     <div class="card-body">
                         <ul class="list-unstyled d-flex justify-content-between">
@@ -149,64 +150,17 @@
                                 <i class="text-muted fa fa-star"></i>
                                 <i class="text-muted fa fa-star"></i>
                             </li>
-                            <li class="text-muted">$240.00</li>
+                            <li class="text-muted"><?php echo MONEDA . ' ' .  $producto['precio']; ?></li>
                         </ul>
-                        <a href="shop-single.html" class="h2 text-decoration-none text-dark">Gym Weight</a>
+                        <a href="<?php echo BASE_URL . 'principal/detail/' . $producto['id'];?>" class="h2 text-decoration-none text-dark"><?php echo $producto['nombre']; ?></a>
                         <p class="card-text">
-                            Ideal para tus entrenamientos en casa, este peso de gimnasio es esencial para mantenerte en forma.
+                        <?php echo $producto['descripcion']; ?>
                         </p>
                         <p class="text-muted">Reseñas (24)</p>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                    <a href="shop-single.html">
-                        <img src="<?php echo BASE_URL; ?>assets/img/feature_prod_02.jpg" class="card-img-top" alt="Cloud Nike Shoes">
-                    </a>
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between">
-                            <li>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
-                                <i class="text-muted fa fa-star"></i>
-                            </li>
-                            <li class="text-muted">$480.00</li>
-                        </ul>
-                        <a href="shop-single.html" class="h2 text-decoration-none text-dark">Cloud Nike Shoes</a>
-                        <p class="card-text">
-                            Las zapatillas perfectas para tus actividades diarias, combinando comodidad y estilo.
-                        </p>
-                        <p class="text-muted">Reseñas (48)</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                    <a href="shop-single.html">
-                        <img src="<?php echo BASE_URL; ?>assets/img/feature_prod_03.jpg" class="card-img-top" alt="Summer Addides Shoes">
-                    </a>
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between">
-                            <li>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                                <i class="text-warning fa fa-star"></i>
-                            </li>
-                            <li class="text-muted">$360.00</li>
-                        </ul>
-                        <a href="shop-single.html" class="h2 text-decoration-none text-dark">Summer Addides Shoes</a>
-                        <p class="card-text">
-                            Perfectas para el verano, estas zapatillas combinan frescura y estilo para tus paseos.
-                        </p>
-                        <p class="text-muted">Reseñas (74)</p>
-                    </div>
-                </div>
-            </div>
+            <?php }?>
         </div>
     </div>
 </section>

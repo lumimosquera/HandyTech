@@ -9,6 +9,7 @@ class Home extends Controller
     {
         $data['title'] = 'Inicio';
         $data['categorias'] = $this->model->getCategorias();
+        $data['nuevoProductos'] = $this->model->getNuevoProductos();
         $this->views->getView('home', "index", $data);
     }
    

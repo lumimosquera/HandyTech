@@ -267,8 +267,22 @@ body, ul, li, p, a, label, input, div {
     margin: auto;
   }
 }
+/* Services  ABOUT*/
 
 
+/* Services  ABOUT*/
+/* Estilos adicionales para la imagen */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px; /* Ejemplo de margen superior */
+}
+
+@media (max-width: 768px) {
+  .img-fluid {
+      margin-top: 10px; /* Ajuste de margen para pantallas más pequeñas */
+  }
+}
 
 /* fin Footer */
 

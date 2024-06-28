@@ -22,9 +22,10 @@ class Principal extends Controller
          $this->views->getView('Principal', "shop", $data);
      }
       //Vista detalle producto
-      public function detail($is_producto)
+      public function detail($id_producto)
       {
-          $data['title'] = '---';
+        $data['producto'] = $this->model->getProducto($id_producto);
+          $data['title'] = $data['producto'] ['nombre'];
           $this->views->getView('Principal', "detail", $data);
       }
        //Vista Contacto
