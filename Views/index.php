@@ -105,7 +105,7 @@
         <div class="col-lg-6 m-auto">
             <h1 class="h1">Categorías del Mes</h1>
             <p>
-                HandyTech Local es tu tienda en línea de tecnología práctica y accesible. Inspirada en Amazon y MercadoLibre, ofrece productos innovadores que facilitan tu vida diaria. Con un enfoque local y personalizado, conecta a los usuarios con lo mejor de la tecnología moderna de manera conveniente.
+                <!-- Categorías finales del mes -->
             </p>
         </div>
     </div>
@@ -153,7 +153,7 @@
                             <li class="text-muted"><?php echo MONEDA . ' ' .  $producto['precio']; ?></li>
                         </ul>
                         <a href="<?php echo BASE_URL . 'principal/detail/' . $producto['id'];?>" class="h2 text-decoration-none text-dark"><?php echo $producto['nombre']; ?></a>
-                        <p class="card-text">
+                        <p class="card-text ">
                         <?php echo $producto['descripcion']; ?>
                         </p>
                         <p class="text-muted">Reseñas (24)</p>

@@ -85,7 +85,16 @@ body, ul, li, p, a, label, input, div {
 /* Accordion */
 .templatemo-accordion a { color: #000;}
 .templatemo-accordion a:hover { color: #333d4a;}
+
+
 /* Shop */
+#anterior-btn:hover, #siguiente-btn:hover {
+  background-color: #dc3545; /* Bootstrap 'danger' color */
+  color: white;
+
+}
+
+
 .shop-top-menu a:hover { color: #970C10 !important;}
 /* Product */
 .product-wap { box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.10);}

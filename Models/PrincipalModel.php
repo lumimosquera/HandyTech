@@ -11,6 +11,20 @@ class PrincipalModel extends Query{
        return $this->select($sql);
     }
 
+     // Paginacion
+    public function getProductos($desde, $porPagina)
+    {
+        $sql = "SELECT * FROM productos LIMIT $desde, $porPagina";
+        return $this->selectAll($sql);
+    }
+
+    // Obtener total de productos
+    public function getTotalProductos()
+    {
+        $sql = "SELECT COUNT(*) AS total FROM productos";
+        return $this->select($sql);
+    }
+
 }
  
 ?>

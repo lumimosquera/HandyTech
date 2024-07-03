@@ -40,10 +40,10 @@
         <lottie-player src="https://lottie.host/3a37ac93-548b-4d99-a2cf-0df8d06c169f/g0uw0IOfvk.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
         <h1>Página no encontrada.</h1>
         <p class="lead">La página que buscas no existe o ha sido movida.</p>
+        <p class="lead">O puedes visitar nuestras <a href="<?php echo BASE_URL; ?>popular">secciones populares</a>.</p>
         <p class="lead">
             <a href="<?php echo BASE_URL; ?>" class="btn btn-lg btn-custom fw-bold"><?php echo TITLE; ?></a>
         </p>
-        <p class="lead">O puedes visitar nuestras <a href="<?php echo BASE_URL; ?>popular">secciones populares</a>.</p>
     </div>
 </body>
 </html>
