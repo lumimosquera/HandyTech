@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title><?php echo TITLE . ' - ' .  $data['title'] ;?> href</title>
+    <title><?php echo TITLE . ' - ' .  $data['title'] ;?></title>
 
 
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo BASE_URL; ?>assets/favicon/apple-icon-57x57.png">

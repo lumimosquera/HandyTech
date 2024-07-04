@@ -104,16 +104,17 @@
     <?php 
      $anterior = $data['pagina'] - 1;
      $siguiente = $data['pagina'] + 1;
+     $url = BASE_URL . 'principal/categorias/' . $data['id_categoria'];
 
      if ($data['pagina'] > 1) {
          echo'<li class="page-item ">
-         <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0 bg-danger text-white" href=" '.$anterior.' ">Anterior</a>
+         <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0 bg-danger text-white" href=" '. $url . '/' . $anterior.' ">Anterior</a>
          </li>';
         }
 
      if ($data['total'] >= $siguiente)  {
          echo '<li class="page-item">
-         <a class="page-link active rounded-0 shadow-sm border-top-0 border-left-0 bg-white text-dark" href="'.$siguiente.'" >Siguiente</a>
+         <a class="page-link active rounded-0 shadow-sm border-top-0 border-left-0 bg-white text-dark" href="' . $url . '/'   .$siguiente.'" >Siguiente</a>
          </li>';
 
         }

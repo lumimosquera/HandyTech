@@ -62,11 +62,14 @@ class Principal extends Controller
           $pagina = (empty($page)) ? 1 : $page ;
           $porPagina = 16;
           $desde = ($pagina - 1) * $porPagina;
+
           $data['pagina'] = $pagina;
           $total = $this->model->getTotalProductosCat($id_categoria);
           $data['total'] = ceil($total['total'] / $porPagina);
+          
           $data['productos'] = $this->model->getProductoCat($id_categoria, $desde, $porPagina);
           $data['title'] = 'categorias';
+          $data['id_categoria'] = $id_categoria;
           $this->views->getView('Principal', "categorias", $data);
       }
 }
