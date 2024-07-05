@@ -41,6 +41,12 @@ class PrincipalModel extends Query{
         return $this->select($sql);
     }
 
+    // productos relacionados Aleatorios
+    public function getAleatorios($id_categoria, $id_producto)
+    {
+        $sql =" SELECT * FROM productos  WHERE id_categoria = $id_categoria AND id != $id_producto ORDER BY RAND() LIMIT 20";
+        return $this->selectAll($sql);
+    }
 
 
 }

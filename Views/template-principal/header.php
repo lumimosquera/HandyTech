@@ -79,7 +79,10 @@
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 
-            <a class="navbar-brand text-black logo h2 align-self-center"><span class=" text-danger logo h2| align-self-center" href=" <?php echo BASE_URL?>" <?php echo TITLE_DOS; ?> > <?php echo TITLE; ?></a>
+        <a class="navbar-brand text-black logo h2 align-self-center" href="<?php echo BASE_URL . 'home/index' ?>" title="<?php echo TITLE_DOS; ?>">
+    <span class="text-danger logo h2 align-self-center"><?php echo TITLE; ?></span>
+</a>
+
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -113,12 +116,16 @@
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                     </a>
                     <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                        <i class="fas fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-danger text-white">0</span>
                     </a>
                     <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                        <i class="fas fa-fw fa-heart text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-danger text-white">0</span>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fas fa-fw fa-user text-dark mr-3"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-danger text-white"></span>
                     </a>
                 </div>
             </div>

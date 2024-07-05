@@ -32,8 +32,10 @@ class Principal extends Controller
       public function detail($id_producto)
       {
         $data['producto'] = $this->model->getProducto($id_producto);
-          $data['title'] = $data['producto'] ['nombre'];
-          $this->views->getView('Principal', "detail", $data);
+        $id_categoria = $data['producto'] ['id_categoria'];
+        $data['relacionados'] = $this->model->getAleatorios($id_categoria, $data['producto'] ['id']);
+        $data['title'] = $data['producto'] ['nombre'];
+        $this->views->getView('Principal', "detail", $data);
       }
        //Vista Contacto
        public function contactos()
