@@ -28,7 +28,7 @@
     <link rel="apple-touch-icon" href="<?php echo BASE_URL . 'assets/img/Handy.png'; ?>">
     <script src="https://kit.fontawesome.com/b02da9335c.js" crossorigin="anonymous"></script>
 
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/bootstrap.min.css'; ?>">
     <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/midesing.css'; ?>">
     <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/custom.css'; ?>">
@@ -119,7 +119,7 @@
                         <i class="fas fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-danger text-white">0</span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" href="<?php echo BASE_URL .'principal/deseo' ?>">
                         <i class="fas fa-fw fa-heart text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-danger text-white" id="btnCantidadDeseo">0</span>
                     </a>

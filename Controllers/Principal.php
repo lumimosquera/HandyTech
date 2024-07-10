@@ -74,4 +74,11 @@ class Principal extends Controller
           $data['id_categoria'] = $id_categoria;
           $this->views->getView('Principal', "categorias", $data);
       }
+
+          //Vista Lista Deseo
+          public function deseo()
+          {
+              $data['title'] = 'Tu lista de deseo';
+              $this->views->getView('Principal', "deseo", $data);
+          }
 }

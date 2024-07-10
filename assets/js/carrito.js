@@ -3,6 +3,9 @@ const btnDeseo = document.querySelector('#btnCantidadDeseo');
 let listaDeseo ;
 
 document.addEventListener('DOMContentLoaded', function() {
+  if (localStorage.getItem('listaDeseo') == null) {
+    listaDeseo = JSON,parse(localStorage.getItem('listaDeseo'));
+  }
   cantidadDeseo();
   btnAddDeseo.forEach(function(button) {
     button.addEventListener('click', function() {
