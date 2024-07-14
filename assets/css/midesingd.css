@@ -1,0 +1,256 @@
+/* Ocultar la barra de desplazamiento para todos los navegadores */
+body {
+  overflow: -moz-scrollbars-none; /* Firefox */
+  -ms-overflow-style: none;       /* Internet Explorer and Edge */
+  scrollbar-width: none;          /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+/* MENU DE NAVEGACION */
+
+
+.navbar-nav .nav-link {
+  position: relative;
+  overflow: hidden;
+}
+.navbar-nav .nav-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #970c10;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.navbar-nav .nav-link:hover::before {
+  transform: translateX(0);
+}
+
+/* BOTON FLOTANTE Y CARRITO */
+.btn-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #000000;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+}
+.btn-flotante:hover {
+  background-color: #970c10;
+  transform: scale(1.1);
+  color: white;
+}
+.btn-flotante i {
+  margin-right: 10px;
+}
+.badge {
+  margin-left: 10px;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+
+/* Estilos generales del banner */
+.carousel-item {
+    background-color: #d3d3d3 ; /* Color de fondo claro para resaltar el contenido */
+}
+
+.carousel-inner {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Estilos de texto */
+.text-align-left h1 {
+    color: #1c1d1f; /* Azul oscuro */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.text-align-left p {
+    color: #252525; /* Gris */
+    font-size: 16px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    color: #970c10; /* Rojo */
+}
+
+.carousel-control-prev i,
+.carousel-control-next i {
+    font-size: 24px;
+}
+
+/* Botones del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+    width: auto;
+    height: 100%;
+    background: none;
+    border: none;
+}
+
+/* Indicadores */
+.carousel-indicators li {
+    background-color: #6f7375; /* Gris */
+}
+
+.carousel-indicators .active {
+    background-color: #970c10; /* Rojo */
+}
+
+/* Imágenes */
+.carousel-item img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* LOGIN ADMIN */
+.bg-gradient-dark {
+  background: linear-gradient(180deg, #343a40 10%, #212529 100%);
+  color: white;
+}
+.card {
+  border-radius: 1rem;
+}
+.bg-login-image {
+  background: url('assets/img/login-bg.jpg');
+  background-position: center;
+  background-size: cover;
+}
+.form-control-user {
+  border-radius: 10rem;
+  padding: 1.5rem 1rem;
+}
+.btn-user {
+  border-radius: 10rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+}
+.text-gray-900 {
+  color: #3a3b45 !important;
+}
+
+
+
+
+
+/* Footer */
+.pie-pagina {
+    width: 100%;
+    background-color: #F2F2F2;
+  }
+  .pie-pagina .grupo-1 {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+  }
+  .pie-pagina .grupo-1 .box figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .pie-pagina .grupo-1 .box figure img {
+    width: 300px;
+  } 
+  .pie-pagina .grupo-1 .box h2 {
+    color: #0D0D0D;
+    margin-bottom: 25;
+    font-size: 20px;
+  }
+  .pie-pagina .grupo-1 .box p {
+    color: #222222;
+    margin-bottom: 10px;
+  }
+  .pie-pagina .grupo-1 .box ul{
+    list-style-type: none;
+    padding: 0;
+  }
+  .pie-pagina .grupo-1 .box ul li{
+    margin-bottom: 10px;
+  }
+  .pie-pagina .grupo-1 .box ul li a{
+    color: #012030;
+      text-decoration: none;
+      transition: color 0.3s;
+  }
+  .pie-pagina .grupo-1 .box ul li a:hover{
+    color: #73141B;
+  
+  }
+  .pie-pagina .grupo-1 .contacto a {
+    display: inline-block;
+    text-decoration: none;
+    color: #012030;
+    font-size: 15px;
+    margin-bottom: 10px;
+  } 
+  .pie-pagina .grupo-1 .red-social a {
+    display: inline-block;
+    text-decoration: none;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    color: #ffff;
+    margin-right: 10px;
+    background-color:#73141B;
+    text-align: center;
+    transition: all 300ms ease;
+  } 
+  .pie-pagina .grupo-1 .red-social a:hover {
+    color: #012030;
+  } 
+  .pie-pagina .grupo-2 {
+    background-color: #73141B;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+  } 
+  .pie-pagina .grupo-2 small {
+    font-size: 15px;
+  }
+  
+  @media screen and (max-width:800px) {
+    .pie-pagina .grupo-1 {
+      width: 90%;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 30px;
+      padding: 35px 0px;
+      margin: auto;
+    }
+  }
+  /* Services  ABOUT*/
+  
+  
+  /* Services  ABOUT*/
+  /* Estilos adicionales para la imagen */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px; /* Ejemplo de margen superior */
+  }
+  
+  @media (max-width: 768px) {
+    .img-fluid {
+        margin-top: 10px; /* Ajuste de margen para pantallas más pequeñas */
+    }
+  }
+  
+  /* fin Footer */
