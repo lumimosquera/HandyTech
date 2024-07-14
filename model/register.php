@@ -20,6 +20,7 @@ if (!empty($_POST)) {
     $usuario = mysqli_real_escape_string($conexion, $_POST['usuario']);
     $clave = mysqli_real_escape_string($conexion, $_POST['clave']);
     $imagen = '';
+    $rol = 'user'; // Asignar rol por defecto
 
     // Validación básica (puedes agregar más validaciones según tus requerimientos)
     if (empty($nombre) || empty($correo) || empty($usuario) || empty($clave)) {
@@ -84,7 +85,7 @@ if (!empty($_POST)) {
             if (empty($alert)) {
                 // Insertar nuevo usuario en la base de datos
                 $clave = md5($clave); // Hashear la contraseña (en un entorno real deberías considerar usar métodos más seguros)
-                $query_insert = "INSERT INTO usuarios(nombre, correo, usuario, clave, imagen) VALUES ('$nombre', '$correo', '$usuario', '$clave', '$imagen')";
+                $query_insert = "INSERT INTO usuarios(nombre, correo, usuario, clave, imagen, rol) VALUES ('$nombre', '$correo', '$usuario', '$clave', '$imagen', '$rol')";
                 $resultado_insert = mysqli_query($conexion, $query_insert);
 
                 if ($resultado_insert) {
@@ -116,6 +117,10 @@ if (!empty($_POST)) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Registro de Usuario</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico" type="image/x-icon">
+    <link href="../assets/css/midesing.css" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://kit.fontawesome.com/b02da9335c.js" crossorigin="anonymous"></script>
@@ -161,11 +166,19 @@ if (!empty($_POST)) {
                                         <hr>
                                     </form>
                                     <div class="text-center">
-                                        <a class="small" href="../admin/index.php">¿Ya tienes una cuenta? ¡Inicia sesión!</a>
+                                        <a class="small" href="login.php">¿Ya tienes una cuenta? ¡Inicia sesión!</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="../index.php">Vol ver a la pagina principal</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
+</body>
+</html>

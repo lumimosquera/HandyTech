@@ -141,9 +141,24 @@ body::-webkit-scrollbar {
 .text-gray-900 {
   color: #3a3b45 !important;
 }
+/*CARD PRODUCTO*/
 
+.my-cp{
+  background-color: #ededed;
+}
+.card:hover .card-img-top {
+  transform: scale(1.1);
+}
 
+.card {
+  transition: transform 0.3s ease-in-out;
+}
 
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/*FIN CARD PRODUCTO*/
 
 
 /* Footer */

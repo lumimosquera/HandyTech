@@ -1,8 +1,6 @@
-<?php session_start();
-if (empty($_SESSION['id'])) {
-    header('Location: ./');
+<?php if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
-
 
 
 $id = $_SESSION['id'];
@@ -34,7 +32,8 @@ $imagen = $result['imagen'];
     <link rel="shortcut icon" href="../assets/favicon/favicon.ico" type="image/x-icon">
     <!-- Custom fonts for this template-->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://kit.fontawesome.com/b02da9335c.js" crossorigin="anonymous"></script>
     <!-- Custom styles for this template-->
     <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="apple-touch-icon" href="../assets/favicon/Handy.ico">
@@ -60,21 +59,16 @@ $imagen = $result['imagen'];
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <!-- Nav Items -->
+            <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Menús</span></a>
             </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="categorias.php">
                     <i class="fas fa-tag"></i>
-                    <span>Categorias</span></a>
+                    <span>Categorías</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="productos.php">
@@ -82,19 +76,21 @@ $imagen = $result['imagen'];
                     <span>Productos</span></a>
             </li>
 
-            <a type="button" class="btn btn-light" href="../salir.php">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                <span>Cerrar sesión</span>
-            </a>
-
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            <!-- User -->
+            <li class="nav-item">
+                <a class="nav-link" href="usuarios.php">
+                    <i class="fas fa-user"></i>
+                    <span>Usuarios</span></a>
+            </li>
+            <!-- Logout Button -->
+            <li class="nav-item">
+                <a class="nav-link" href="../salir.php">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    <span>Cerrar sesión</span>
+                </a>
+            </li>
 
         </ul>
         <!-- End of Sidebar -->
@@ -103,7 +99,7 @@ $imagen = $result['imagen'];
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
-            <div id="content">
+            <div id="container ">
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -116,16 +112,16 @@ $imagen = $result['imagen'];
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <!-- Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
-                            <!-- Dropdown - Messages -->
+                            <!-- Dropdown - Search -->
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
@@ -135,24 +131,20 @@ $imagen = $result['imagen'];
                                 </form>
                             </div>
                         </li>
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
+
+                        <!-- User Information Dropdown -->
+                        <li class="nav-item  dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <h3 class="mr-2 d-none d-lg-inline text-gray-600 h4"><?php echo $_SESSION['nombre']; ?></h3>
-                                <img class="img-profile rounded-circle" src="<?php echo $imagen ? $imagen : 'assets/img/default-user.png'; ?>">
+                                <img class="img-profile rounded-circle" src="<?php echo $imagen ? $imagen : '../assets/img/default-user.png'; ?>">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href=".../logout.php">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Cerrar sesión
-                                </a>
-                            </div>
+                            <!-- Dropdown - User Information -->
+                            <ul class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile</a></li>
+                                <li><div class="dropdown-divider"></div></li>
+                                <li><a class="dropdown-item" href="salir.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Cerrar sesión</a></li>
+                            </ul>
                         </li>
 
                     </ul>
@@ -162,5 +154,9 @@ $imagen = $result['imagen'];
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <!-- Content goes here -->
+                </div>
+                <!-- /.container-fluid -->
 
-                    <!-- Page Heading -->
+            </div>
+            <!-- End of Main Content -->

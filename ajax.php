@@ -11,6 +11,7 @@ if (isset($_POST)) {
             $data['id'] = $result['id'];
             $data['precio'] = $result['precio_rebajado'];
             $data['nombre'] = $result['nombre'];
+            $data['imagen'] = $result['imagen'];
             $total = $total + $result['precio_rebajado'];
             array_push($array['datos'], $data);
         }

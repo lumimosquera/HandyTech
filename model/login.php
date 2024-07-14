@@ -1,16 +1,7 @@
 <?php
-
-// ventas.php
-
-session_start();
-if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
-    header('Location: ../index.php');
-    exit;
-}
-
 session_start();
 if (!empty($_SESSION['active'])) {
-    header('location: productos.php');
+    header('location: ../index.php');
 } else {
     if (!empty($_POST)) {
         $alert = '';
@@ -34,7 +25,14 @@ if (!empty($_SESSION['active'])) {
                 $_SESSION['id'] = $dato['id'];
                 $_SESSION['nombre'] = $dato['nombre'];
                 $_SESSION['user'] = $dato['usuario'];
-                header('Location: productos.php');
+                $_SESSION['rol'] = $dato['rol']; // Añadir el rol a la sesión
+
+                // Redirigir según el rol del usuario
+                if ($_SESSION['rol'] == 'admin') {
+                    header('Location: ../admin/productos.php');
+                } else {
+                    header('Location: ../index.php');
+                }
             } else {
                 $alert = '<div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
                         Contraseña incorrecta
@@ -55,11 +53,10 @@ if (!empty($_SESSION['active'])) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Iniciar Sesión</title><link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <title>Iniciar Sesión</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="shortcut icon" href="../assets/favicon/favicon.ico" type="image/x-icon">
-
     <link href="../assets/css/midesingd.css" rel="stylesheet" />
-
     <link rel="stylesheet" type="text/css" href="../assets/css/sb-admin-2.min.css">
     <link rel="shortcut icon" href="../assets/img/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -78,27 +75,31 @@ if (!empty($_SESSION['active'])) {
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
-                      
-                            
-                            <div class="col-lg-12">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">¡Bienvenido de nuevo! ADMIN</h1>
-                                        <?php echo (isset($alert)) ? $alert : ''; ?>
-                                    </div>
-                                    <form class="user" method="POST" action="" autocomplete="off">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="usuario" name="usuario" placeholder="Usuario...">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="clave" name="clave" placeholder="Password">
-                                        </div>
-                                        <button type="submit" class="btn btn-danger btn-user btn-block">
-                                        Iniciar sesión
-                                        </button>
-                                        <hr>
-                                    </form>
+                        <div class="col-lg-12">
+                            <div class="p-5">
+                                
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">¡Bienvenido de nuevo!</h1>
+                                    <?php echo (isset($alert)) ? $alert : ''; ?>
                                 </div>
+                                <form class="user" method="POST" action="" autocomplete="off">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user" id="usuario" name="usuario" placeholder="Usuario...">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user" id="clave" name="clave" placeholder="Password">
+                                    </div>
+                                    <button type="submit" class="btn btn-danger btn-user btn-block">
+                                        Iniciar sesión
+                                    </button>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="register.php">¿Aun no tienes una cuenta? ¡Ristrar me!</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="../index.php">Vol ver a la pagina principal</a>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

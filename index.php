@@ -1,7 +1,9 @@
-<?php 
-// Esto es un ejemplo de cómo podrías manejar el inicio de sesión y guardar la información del usuario en la sesión
+<?php
+
 session_start();
 require_once "config/conexion.php";
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtén los datos del formulario de inicio de sesión
@@ -17,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Almacena la información del usuario en la sesión
             $_SESSION['id'] = $user['id'];
             $_SESSION['nombre'] = $user['nombre'];
-            $_SESSION['imagen'] = $user['imagen'];
+            $_SESSION['imagen'] = $result['imagen'];
             // Redirige al usuario a la página principal
             header("Location: index.php");
             exit();
@@ -31,12 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 // Verificar si el usuario está logueado
-if (!empty($_SESSION['id'])) {
-    $nombre = $_SESSION['nombre'];
-    $imagen = !empty($_SESSION['imagen']) ? $_SESSION['imagen'] : 'assets/img/default-user.png';
-} else {
-    $nombre = '';
-    $imagen = 'assets/img/default-user.png';}
+
+
 
 ?>
 
@@ -56,18 +54,19 @@ if (!empty($_SESSION['id'])) {
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="assets/css/styles.css" rel="stylesheet" />
     <link href="assets/css/estilos.css" rel="stylesheet" />
-    <link href="assets/css/midesingd.css" rel="stylesheet" />
+    <link href="assets/css/midesing.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://kit.fontawesome.com/b02da9335c.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="my-cp">
     <!-- BOTON-->
     <a href="#" class="btn-flotante" id="btnCarrito">
         <i class="fas fa-shopping-cart"></i> Carrito
         <span class="badge bg-danger" id="carrito">0</span>
     </a>
-    <!-- Navigation-->
+
+    <!-- Navigation -->
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
@@ -90,40 +89,60 @@ if (!empty($_SESSION['id'])) {
                             </li>
                         <?php } ?>
                     </ul>
-                    <ul class="navbar-nav ms-auto">
-                        <?php if (!empty($nombre)) { ?>
-                            <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="model/register.php" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img class="img-profile rounded-circle" src="<?php echo $imagen; ?>" alt="User Image" style="width: 40px; height: 40px;">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small ml-2"><?php echo $nombre; ?></span>
-                                </a>
-                                <!-- Dropdown - User Information -->
-                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Profile
-                                    </a>
+                    <ul class="navbar-nav">
+                        <?php
+                        // Verifica si existe la sesión y el ID del usuario
+                        if (!empty($_SESSION['id'])) {
+                            $id = $_SESSION['id'];
+                            $query = "SELECT nombre, imagen FROM usuarios WHERE id = '$id'";
+                            $result = mysqli_query($conexion, $query);
+
+                            if ($result) {
+                                $usuario = mysqli_fetch_assoc($result);
+                                $nombre = $usuario['nombre'];
+                                $imagen = !empty($usuario['imagen']) ? $usuario['imagen'] : 'assets/img/default-user.png';
+
+                                // Almacenar en sesión si existe imagen
+                                if (!empty($imagen)) {
+                                    $_SESSION['imagen'] = $imagen;
+                                }
+                            } else {
+                                // Manejo de error en la consulta
+                                $nombre = 'Usuario';
+                                $imagen = 'assets/img/default-user.png';
+                            }
+                        } else {
+                            // Si no hay sesión iniciada, muestra el enlace de inicio de sesión
+                            $nombre = 'Iniciar';
+                            $imagen = 'assets/img/default-user.png';
+                        }
+                        ?>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small ml-2"><?php echo $nombre; ?></span>
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <ul class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i><?php echo $nombre; ?> </a></li>
+                                <li>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="salir.php">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Cerrar sesión
-                                    </a>
-                                </div>
-                            </li>
-                        <?php } else { ?>
-                            <li class="nav-item">
-                                <a href="model/register.php" class="nav-link" data-toggle="modal" data-target="#loginModal">
-                                    <i class="fas fa-user"></i> Iniciar sesión
-                                </a>
-                            </li>
-                        <?php } ?>
+                                </li>
+                                <li><a class="dropdown-item" href="model/login.php"><i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i> Iniciar sesión</a></li>
+                                <li><a class="dropdown-item" href="salir.php"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Cerrar sesión</a></li>
+                            </ul>
+                        </li>
+
+
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
 
-    <!-- Banner-->
+
+    <!--  Banner-->
     <div id="template-mo-hero-carousel" class="carousel slide bg-dar" data-bs-ride="carousel">
         <ol class="carousel-indicators">
             <li data-bs-target="#template-mo-hero-carousel" data-bs-slide-to="0" class="active"></li>
@@ -222,33 +241,39 @@ if (!empty($_SESSION['id'])) {
                 if ($result > 0) {
                     while ($data = mysqli_fetch_assoc($query)) { ?>
                         <div class="col mb-5 productos" category="<?php echo $data['categoria']; ?>">
-                            <div class="card h-100">
+                            <div class="card h-100 shadow border-0" style="border-radius: 10px; overflow: hidden;">
                                 <!-- Sale badge-->
-                                <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem"><?php echo ($data['precio_normal'] > $data['precio_rebajado']) ? 'Oferta' : ''; ?></div>
+                                <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem; z-index: 10;">
+                                    <?php echo ($data['precio_normal'] > $data['precio_rebajado']) ? 'Oferta' : ''; ?>
+                                </div>
                                 <!-- Product image-->
-                                <img class="card-img-top" src="assets/img/<?php echo $data['imagen']; ?>" alt="..." />
+                                <div class="img-container">
+                                    <img class="card-img-top img-fluid" src="assets/img/<?php echo $data['imagen']; ?>" alt="..." style="height: 200px; object-fit: cover; transition: transform 0.3s ease-in-out;" />
+                                </div>
                                 <!-- Product details-->
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <!-- Product name-->
-                                        <h5 class="fw-bolder"><?php echo $data['nombre'] ?></h5>
-                                        <p><?php echo $data['descripcion']; ?></p>
-                                        <!-- Product reviews-->
-                                        <div class="d-flex justify-content-center small text-warning mb-2">
-                                            <div class="bi-star-fill"></div>
-                                            <div class="bi-star-fill"></div>
-                                            <div class="bi-star-fill"></div>
-                                            <div class="bi-star-fill"></div>
-                                            <div class="bi-star-fill"></div>
-                                        </div>
-                                        <!-- Product price-->
-                                        <span class="text-muted text-decoration-line-through"><?php echo $data['precio_normal'] ?></span>
-                                        <?php echo $data['precio_rebajado'] ?>
+                                <div class="card-body p-4 text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder text-dark"><?php echo $data['nombre'] ?></h5>
+                                    <p class="text-muted small"><?php echo $data['descripcion']; ?></p>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center mb-2">
+                                        <?php for ($i = 0; $i < 5; $i++) { ?>
+                                            <div class="bi-star-fill text-warning"></div>
+                                        <?php } ?>
+                                    </div>
+                                    <!-- Product price-->
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <span class="text-muted text-decoration-line-through me-2"><?php echo $data['precio_normal'] ?></span>
+                                        <span class="fw-bold text-danger"><?php echo $data['precio_rebajado'] ?></span>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar" data-id="<?php echo $data['id']; ?>" href="#">Agregar</a></div>
+                                    <div class="text-center">
+                                        <a class="btn btn-danger btn-sm mt-auto agregar" data-id="<?php echo $data['id']; ?>" href="#">
+                                            <i class="fas fa-cart-plus"></i> Agregar
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -310,6 +335,9 @@ if (!empty($_SESSION['id'])) {
     <!-- Core theme JS-->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

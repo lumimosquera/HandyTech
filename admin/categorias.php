@@ -1,4 +1,15 @@
 <?php
+
+
+session_start();
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
+    header('Location: ../index.php');
+    exit;
+}
+
+
+
+
 require_once "../config/conexion.php";
 if (isset($_POST)) {
     if (!empty($_POST)) {
@@ -11,6 +22,7 @@ if (isset($_POST)) {
 }
 include("includes/header.php");
 ?>
+<div class="container ">
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Categorias</h1>
     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="abrirCategoria"><i class="fas fa-plus fa-sm text-white-50"></i> Nuevo</a>
@@ -35,7 +47,7 @@ include("includes/header.php");
                             <td><?php echo $data['categoria']; ?></td>
                             <td>
                                 <form method="post" action="eliminar.php?accion=cli&id=<?php echo $data['id']; ?>" class="d-inline eliminar">
-                                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                                    <button class="btn btn-danger" type="submit"><i class="fas fa-trash-alt"></i> Eliminar</button>
                                 </form>
                             </td>
                         </tr>
@@ -65,5 +77,6 @@ include("includes/header.php");
             </div>
         </div>
     </div>
+</div>
 </div>
 <?php include("includes/footer.php"); ?>
