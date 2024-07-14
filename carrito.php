@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
 // Verificar si hay una sesión activa
 if (!isset($_SESSION['id'])) {
     // Redirigir a la página de inicio de sesión si no hay sesión activa
-    header('Location: login.php');
+    header('Location: model/login.php');
     exit;
 }
 
